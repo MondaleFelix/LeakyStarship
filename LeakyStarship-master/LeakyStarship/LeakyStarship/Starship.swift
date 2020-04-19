@@ -23,9 +23,11 @@ class Starship
         print("Starship \(name) instance allocated.\n")
     }
     
-    lazy var roster: () -> String = {
+    // Lazy keyword calculates the value of variable when it is first used
+                    // closure type           // in keyword separates the closure parameters and closure body
+    lazy var roster: () -> String = { [weak self] in
         var list = ""
-        for crewMember in self.crewMembers
+        for crewMember in self!.crewMembers
         {
             list += crewMember + " "
         }
